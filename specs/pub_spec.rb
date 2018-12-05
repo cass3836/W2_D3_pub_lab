@@ -5,7 +5,7 @@ require_relative("../pub.rb")
 class TestPub < MiniTest::Test
 
   def setup
-    @customer = Customer.new("Cassia", 50, 19, 0)
+    @customer = Customer.new("Cassia", 50, 19, 13)
     @customer2 = Customer.new("James", 60, 17, 0)
 
     @drink = Drink.new({
@@ -35,6 +35,11 @@ end
 def test_can_buy
   assert_equal(true, @pub.can_buy(@customer))
   assert_equal(false, @pub.can_buy(@customer2))
+end
+
+def test_sober_enough
+  assert_equal(false, @pub.sober_enough(@customer))
+  assert_equal(true, @pub.sober_enough(@customer2))
 end
 
 

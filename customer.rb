@@ -15,7 +15,7 @@ def initialize(name, wallet, age, drunk)
 end
 
 def buy_drink(drink, pub)
-  if @customer_wallet >= drink.info[:price] && pub.can_buy(self)
+  if @customer_wallet >= drink.info[:price] && pub.can_buy(self) && pub.sober_enough(self)
     @customer_wallet -= drink.info[:price]
     pub.gain_money(drink.info[:price])
     @drunkenness += drink.info[:alcohol_content]

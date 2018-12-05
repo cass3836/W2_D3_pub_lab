@@ -30,4 +30,13 @@ def can_buy(customer)
  end
 end
 
+def sober_enough(customer)
+   if customer.drunkenness >=10
+    return false
+  else
+    true
+  end
+end
+
+
 end

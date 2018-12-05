@@ -2,7 +2,7 @@ require_relative("customer.rb")
 require_relative("pub.rb")
 require_relative("drink.rb")
 
-@customer = Customer.new("Cassia", 50, 19, 12)
+@customer = Customer.new("Cassia", 50, 19, 9)
 @customer2 = Customer.new("James", 60, 17, 0)
 
 @drink = Drink.new({
@@ -19,9 +19,11 @@ require_relative("drink.rb")
 
 p @customer2.buy_drink(@drink, @pub)
 
+p @pub.sober_enough(@customer)
 
+p @customer.buy_drink(@drink2, @pub)
 
-p @customer2
+p @customer.buy_drink(@drink2, @pub)
 
 # p pub
 #

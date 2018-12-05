@@ -7,7 +7,7 @@ require_relative("../customer.rb")
 
 class TestCustomer < MiniTest::Test
 def setup
-  @customer = Customer.new("Cassia", 50, 19, 10)
+  @customer = Customer.new("Cassia", 50, 19, 13)
   @customer2 = Customer.new("James", 60, 17, 0)
 
   @drink = Drink.new({
@@ -35,8 +35,8 @@ end
 
 def test_buy_drink__money
   @customer.buy_drink(@drink, @pub)
-  assert_equal(48, @customer.customer_wallet)
-  assert_equal(102, @pub.till_amount)
+  assert_equal(50, @customer.customer_wallet)
+  assert_equal(100, @pub.till_amount)
 end
 
 def test_buy_drink__money_if_underage
@@ -46,7 +46,7 @@ def test_buy_drink__money_if_underage
 end
 
 def test_get_drunkenness__before_drink
-  assert_equal(10, @customer.drunkenness)
+  assert_equal(13, @customer.drunkenness)
   assert_equal(0, @customer2.drunkenness)
 end
 
@@ -55,5 +55,9 @@ def test_alcohol_levels__after_drink
   assert_equal(0, @customer2.drunkenness)
 end
 
+def test_buy_drink__drunkenness
+  @customer.buy_drink(@drink, @pub)
+  assert_equal(13, @customer.drunkenness)
+end
 
 end
