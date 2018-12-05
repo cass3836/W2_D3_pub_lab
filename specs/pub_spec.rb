@@ -6,6 +6,7 @@ class TestPub < MiniTest::Test
 
 def setup
 @pub = Pub.new("World's End", 100, ["vodka", "beer"])
+
 end
 
 def test_get_pub_name
@@ -19,5 +20,12 @@ end
 def test_get_drink_collection
   assert_equal(["vodka", "beer"], @pub.drink_collection)
 end
+
+def test_give_drink__vodka
+  @pub.give_drink("vodka")
+  assert_equal(["beer"], @pub.drink_collection)
+end
+
+
 
 end

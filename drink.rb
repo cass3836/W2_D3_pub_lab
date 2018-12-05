@@ -1,13 +1,14 @@
 require("pry")
+require_relative("customer.rb")
+require_relative("pub.rb")
 
 class Drink
 
-attr_reader :drink_name, :drink_price
+attr_reader :info
 
 
-def initialize(name, price)
-  @drink_name = name
-  @drink_price = price
+def initialize(drink_info)
+  @info = drink_info
 end
 
 
