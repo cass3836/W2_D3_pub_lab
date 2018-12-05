@@ -5,20 +5,19 @@ require_relative("../pub.rb")
 class TestPub < MiniTest::Test
 
   def setup
-    @customer = Customer.new("Cassia", 50, 19)
-    @customer2 = Customer.new("James", 60, 17)
+    @customer = Customer.new("Cassia", 50, 19, 0)
+    @customer2 = Customer.new("James", 60, 17, 0)
 
     @drink = Drink.new({
       drink_name: "vodka",
-      price: 2
+      price: 2, alcohol_content: 5
       })
     @drink2 = Drink.new({
       drink_name: "beer",
-      price: 1
+      price: 1, alcohol_content: 1
       })
 
     @pub = Pub.new("World's End", 100, [@drink, @drink2])
-
 end
 
 def test_get_pub_name

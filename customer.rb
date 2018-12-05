@@ -4,23 +4,26 @@ require_relative("pub.rb")
 
 class Customer
 
-attr_reader :customer_name, :customer_wallet, :age
+attr_reader :customer_name, :customer_wallet, :age, :drunkenness
 
 
-def initialize(name, wallet, age)
+def initialize(name, wallet, age, drunk)
   @customer_name = name
   @customer_wallet = wallet
   @age = age
+  @drunkenness = drunk
 end
 
 def buy_drink(drink, pub)
   if @customer_wallet >= drink.info[:price] && pub.can_buy(self)
     @customer_wallet -= drink.info[:price]
     pub.gain_money(drink.info[:price])
-  else 
+    @drunkenness += drink.info[:alcohol_content]
+  else
     return false
   end
 end
+
 
 
 
