@@ -22,4 +22,12 @@ def gain_money(price)
  @till_amount += price
 end
 
+def can_buy(customer)
+ if customer.age >= 18
+   return true
+ else
+   return false
+ end
+end
+
 end
