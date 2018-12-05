@@ -4,8 +4,20 @@ require_relative("../pub.rb")
 
 class TestPub < MiniTest::Test
 
-def setup
-@pub = Pub.new("World's End", 100, ["vodka", "beer"])
+  def setup
+    @customer = Customer.new("Cassia", 50)
+    @customer2 = Customer.new("James", 60)
+
+    @drink = Drink.new({
+      drink_name: "vodka",
+      price: 2
+      })
+    @drink2 = Drink.new({
+      drink_name: "beer",
+      price: 1
+      })
+
+    @pub = Pub.new("World's End", 100, [@drink, @drink2])
 
 end
 
@@ -18,13 +30,13 @@ def test_get_till_amount
 end
 
 def test_get_drink_collection
-  assert_equal(["vodka", "beer"], @pub.drink_collection)
+  assert_equal([@drink, @drink2], @pub.drink_collection)
 end
-
-def test_give_drink__vodka
-  @pub.give_drink("vodka")
-  assert_equal(["beer"], @pub.drink_collection)
-end
+#
+# def test_give_drink__vodka
+#   @pub.give_drink(@drink)
+#   assert_equal([@drink2], @pub.drink_collection)
+# end
 
 
 
