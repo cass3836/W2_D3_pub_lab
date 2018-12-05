@@ -6,7 +6,6 @@ class TestPub < MiniTest::Test
 
 def setup
 @pub = Pub.new("World's End", 100, ["vodka", "beer"])
-
 end
 
 def test_get_pub_name

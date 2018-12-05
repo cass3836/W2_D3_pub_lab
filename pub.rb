@@ -2,7 +2,7 @@ require("pry")
 
 class Pub
 
-attr_accessor :pub_name, :till_amount, :drink_collection
+attr_reader :pub_name, :till_amount, :drink_collection
 
 
 def initialize(name, till, drinks)
